@@ -1,11 +1,16 @@
-<template>
-    
+<template lang="pug">
+    #{'About'}
 </template>
 
 <script>
-    export default {
-        name: "Form"
+import About from './About'
+
+export default {
+    name: "Form",
+    components: {
+        About
     }
+}
 </script>
 
 <style scoped>
