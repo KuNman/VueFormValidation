@@ -1,5 +1,5 @@
 <template lang="pug">
-    div.d-flex.flex-column
+    div.d-flex.flex-column.header
         div.line
         div.content.d-flex
             div.spacer.d-flex

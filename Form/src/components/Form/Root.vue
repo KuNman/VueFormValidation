@@ -1,5 +1,8 @@
 <template lang="pug">
-    #{'About'}
+    div
+        #{'About'}
+        button.submit.d-flex {{'Publish Event'.toUpperCase()}}
+
 </template>
 
 <script>

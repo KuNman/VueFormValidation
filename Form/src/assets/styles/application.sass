@@ -3,7 +3,79 @@
 
 //COMPONENTS
 @import "objects/header.sass"
+@import "objects/about.sass"
+@import "objects/button.sass"
 
 body
   background: #F6F6F6
   font-family: 'Open Sans', sans-serif
+
+.container
+  width: 50%
+  min-width: 650px
+  border: 1em white solid
+  border-bottom-width: 0.5em
+  -moz-box-shadow: 0 0 5px lightgray
+  -webkit-box-shadow: 0 0 5px lightgray
+  box-shadow: 0 0 5px lightgray
+  background: white
+  margin-top: 2em
+  margin-bottom: 2em
+
+.req
+  color: red
+
+.name
+  font-size: 24px
+  color: $c-blue
+
+form
+  font-weight: 200
+  font-size: 14px
+
+form > div
+  padding-bottom: 1em
+
+form .text
+  flex: 22.5% 0 0
+  align-items: center
+  letter-spacing: 1px
+  font-size: 14px
+  color: $c-blue
+
+form .content
+  flex: 60% 0 0
+
+input,
+textarea
+  width: 100%
+  padding: 0.4em
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder
+  color: lightgray
+
+input::-moz-placeholder,
+textarea::-moz-placeholder
+  color: lightgray
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder
+  color: lightgray
+
+input:-moz-placeholder,
+textarea:-moz-placeholder
+  color: lightgray
+
+textarea
+  resize: none
+  border: 1px solid lightgray
+
+.info
+  letter-spacing: normal
+  text-transform: none
+  font-size: 12px
+  color: lightgray
+
+
+
