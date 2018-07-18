@@ -24,7 +24,7 @@
                     textarea.d-flex(rows="5"
                     v-model="description"
                     name="description"
-                    v-validate="'required|max:5'"
+                    v-validate="'required|max:140'"
                     placeholder="Write about your event, be creative"
                     :class="{'error' : errors.has('description') ? true : false }"
                     )
@@ -32,7 +32,7 @@
                         div.warning.d-flex.justify-content-start Max length 140 characters
                         div.counter.d-flex.justify-content-end {{description.length}}/140
                 div.d-flex.errorMsg(v-if="errors.has('description')")
-                    span.d-flex Description cannot be empty
+                    span.d-flex Description cannot be longer than 140 letters
             div.category.d-flex
                 div.text.d-flex.align-items-start
                     span {{'category'.toUpperCase() }}

@@ -6,9 +6,14 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
-        title: '',
-        description: '',
-        category_id: '',
+        about: {
+            title: '',
+            description: '',
+            category_id: '',
+            paid_event: false,
+            event_fee: 0,
+            reward: '',
+        },
         categories: [
             {
                 "id": 0,
@@ -51,43 +56,46 @@ export const store = new Vuex.Store({
                 "name": "Dance"
             }
         ],
-        paid_event: false,
-        event_fee: 0,
-        reward: '',
+        formFilled: false
     },
     getters: {
-        title: state => state.title,
-        description: state => state.description,
-        category_id: state => state.category_id,
+        title: state => state.about.title,
+        description: state => state.about.description,
+        category_id: state => state.about.category_id,
         categories: state => state.categories,
-        paid_event: state => state.paid_event,
-        event_fee: state => state.event_fee,
-        reward: state => state.reward,
+        paid_event: state => state.about.paid_event,
+        event_fee: state => state.about.event_fee,
+        reward: state => state.about.reward,
+        formFilled: state => state.formFilled,
     },
     mutations: {
         title: (state, payload) => {
-            state.title = payload
+            state.about.title = payload
         },
         description: (state, payload) => {
-            state.description = payload
+            state.about.description = payload
         },
         category_id: (state, payload) => {
-            state.category_id = payload
+            state.about.category_id = payload
         },
         paid_event: (state, payload) => {
-            state.paid_event = payload
+            state.about.paid_event = payload
         },
         event_fee: (state, payload) => {
-            state.event_fee = payload
+            state.about.event_fee = payload
         },
         reward: (state, payload) => {
-            state.reward = payload
+            state.about.reward = payload
         },
+        formFilled: (state) => {
+            state.formFilled = true
+        }
 
     },
     actions: {
         formFilled({commit}) {
-
+            console.log(this.state.about);
+            commit('formFilled');
         }
     }
 })
