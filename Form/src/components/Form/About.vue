@@ -2,13 +2,15 @@
     div.container.d-flex.flex-column.about
         div.name About
         hr
+        <span>{{ errors }}</span>
         form
             div.title.d-flex
                 div.text.d-flex
                     span {{'Title'.toUpperCase() }}
                     span.req  *
                 div.content.d-flex
-                    input.d-flex(v-model="title" placeholder="Make it short and clear")
+                    input.d-flex(v-model="title" placeholder="Make it short and clear" name="title" v-validate="'required|min:5'"
+                    :class="{'input': true, 'is-danger': errors.has('message') }" type="text" )
             div.description.d-flex
                 div.text.d-flex.align-items-start
                     span {{'Description'.toUpperCase() }}
@@ -35,7 +37,7 @@
                     div.radio.d-flex.align-items-center
                         input.d-flex(type="radio" id="paid" value="1" v-model="payment")
                         label.d-flex(for="paid") Paid event
-            div.reward.d-flex
+            div.reward.d-flex(v-if="payment == 1")
                 div.text.d-flex
                     span {{'reward'.toUpperCase() }}
                 div.content.d-flex
@@ -44,12 +46,68 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import { mapMutations } from 'vuex'
+
 export default {
     name: "About",
-    data() {
-        return {
-            payment: 0
+    methods: {
+        ...mapGetters({
+            titleGett: 'title',
+            descriptionGett: 'description',
+            categoryGett: 'category',
+            paymentGett: 'payment',
+            rewardGett: 'reward'
+        }),
+        ...mapMutations({
+            titleMutt: 'title',
+            descriptionMutt: 'description',
+            categoryMutt: 'category',
+            paymentMutt: 'payment',
+            rewardMutt: 'reward'
+        }),
+    },
+    computed: {
+        title: {
+            get() {
+                return this.titleGett();
+            },
+            set(payload) {
+                return this.titleMutt(payload);
+            }
+        },
+        description: {
+            get() {
+                return this.descriptionGett();
+            },
+            set(payload) {
+                return this.descriptionMutt(payload)
+            }
+        },
+        category: {
+            get() {
+                return this.descriptionGett();
+            },
+            set(payload) {
+                return this.categoryMutt(payload)
+            }
+        },
+        payment: {
+            get() {
+                return this.paymentGett();
+            },
+            set(payload) {
+                return this.paymentMutt(payload);
+            }
+        },
+        reward: {
+            get() {
+                return this.descriptionGett();
+            },
+            set(payload) {
+                return this.rewardMutt(payload)
+            }
         }
-    }
+    },
 }
 </script>
