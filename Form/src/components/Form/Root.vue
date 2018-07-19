@@ -1,7 +1,9 @@
 <template lang="pug">
     div(v-if="!formFilled")
         #{'About'}
-        button.submit.d-flex(@click="alert()") {{'Publish Event'.toUpperCase()}}
+        #{'Coordinator'}
+        #{'When'}
+        button.submit.d-flex(@click="send()") {{'Publish Event'.toUpperCase()}}
     div(v-else)
         div.d-flex.success.container
             div.d-flex.title Success
@@ -10,13 +12,17 @@
 
 <script>
 import About from './About'
+import Coordinator from './Coordinator'
+import When from './When'
 import { mapGetters } from 'vuex'
 import { mapActions } from 'vuex'
 
 export default {
     name: "Form",
     components: {
-        About
+        About,
+        Coordinator,
+        When
     },
     methods: {
         ...mapGetters({
@@ -27,7 +33,7 @@ export default {
         ...mapActions({
             formFilledAct: 'formFilled',
         }),
-        alert() {
+        send() {
             return this.errors.items.length === 0 && this.titleGett() && this.descriptionGett()
                 ? this.formFilledAct()
                 : alert('Please fix errors!')

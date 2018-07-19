@@ -37,7 +37,7 @@
                 div.text.d-flex.align-items-start
                     span {{'category'.toUpperCase() }}
                 div.content.d-flex.flex-column.select
-                    select.d-flex(rows="5" v-model="category_id")
+                    select.d-flex(v-model="category_id")
                         option(v-for="cat in categories" v-bind:value="cat.id") {{cat.name}}
                     div.info.d-flex
                         div.warning.d-flex.justify-content-start Describes topic and people who shoud be interested in this event
