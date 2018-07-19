@@ -6,6 +6,8 @@ import { store } from './store/store.js';
 
 Vue.use(Vuex)
 Vue.use(VeeValidate);
+Vue.use(require('vue-moment'));
+
 
 new Vue({
   el: '#app',

@@ -25,9 +25,7 @@
                 div.text.d-flex
                     span {{'email'.toUpperCase() }}
                 div.content.d-flex
-                    input.d-flex(v-model="coordinator.email")
-
-
+                    input.d-flex(:value="coordinator.email" name="email" v-validate="'required|email'" disabled)
 
 </template>
 
